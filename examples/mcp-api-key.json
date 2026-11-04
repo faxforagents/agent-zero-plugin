@@ -1,0 +1,19 @@
+{
+  "mcpServers": {
+    "faxforagents_hosted": {
+      "type": "streamable-http",
+      "url": "https://mcp.faxforagents.com/mcp/",
+      "headers": {
+        "Authorization": "Bearer YOUR_API_KEY"
+      }
+    },
+    "faxforagents_stdio": {
+      "command": "npx",
+      "args": ["-y", "faxforagents-mcp"],
+      "env": {
+        "FAXFORAGENTS_API_KEY": "YOUR_API_KEY"
+      },
+      "disabled": true
+    }
+  }
+}

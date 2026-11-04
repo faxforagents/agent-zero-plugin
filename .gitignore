@@ -1,0 +1,11 @@
+.coding-agent/upstream/
+.coding-agent/a0-plugins/
+.coding-agent/chat-jumper/
+.coding-agent/chat-status-lights/
+.coding-agent/background-changer/
+.coding-agent/tmp/
+__pycache__/
+.pytest_cache/
+.env
+.env.*
+.coding-agent/

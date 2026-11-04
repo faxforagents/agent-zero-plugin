@@ -1,0 +1,8 @@
+name: fax_for_agents
+title: Fax for Agents
+description: Configure fax MCP tools and follow a sandbox send walkthrough.
+version: 0.1.0
+author: faxforagents
+settings_sections: []
+per_project_config: false
+per_agent_config: false
