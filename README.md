@@ -85,7 +85,7 @@ Its first launch can download packages from npm.
 
 ## Check the connection
 
-Look below the editor for a green connection and 15 discovered tools.
+Look below the editor for a green connection and 17 discovered tools.
 The active agent profile controls tool access under Edit agent, then MCPs.
 Call `get_guide`, then `get_fax_capabilities`.
 Tool discovery alone does not verify authentication.
