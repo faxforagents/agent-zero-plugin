@@ -10,7 +10,7 @@ Open Settings, then MCP/A2A, then External MCP Servers.
 Select Raw JSON in the editor.
 Configure one connection from [the examples](../examples/mcp-api-key.json).
 Replace the placeholder only in Agent Zero's own MCP editor.
-Click Apply now and check for a green connection with 15 tools.
+Click Apply now and check for a green connection with 17 tools.
 Allow the needed tools through Edit agent, then MCPs.
 
 Call `get_guide` with `{}`, then `get_fax_capabilities` with `{}`.
