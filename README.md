@@ -13,7 +13,13 @@
   <a href="https://faxforagents.com/docs/sdks/">SDKs</a> ·
   <a href="https://faxforagents.com/mcp/">MCP</a> ·
   <a href="https://app.faxforagents.com">Dashboard</a> ·
+  <a href="https://faxforagents.com/pricing/">Pricing</a> ·
   <a href="https://faxforagents.com/changelog/">Changelog</a>
+</p>
+
+<p align="center">
+  <a href="LICENSE"><img src="https://img.shields.io/badge/licence-MIT-1f6feb" alt="MIT licence"></a>
+  <a href="https://faxforagents.com/mcp/"><img src="https://img.shields.io/badge/MCP-hosted%20and%20stdio-6b4fbb" alt="MCP, hosted and stdio"></a>
 </p>
 
 Fax for Agents provides fax tools through MCP.
