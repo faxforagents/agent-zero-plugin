@@ -18,6 +18,7 @@ python3 -m venv .coding-agent/tmp/venv
 
 If the source checkouts are missing, clone these repositories into their matching paths.
 Check out the commits recorded in the source lock before comparing results.
+The [ci workflow](../.github/workflows/ci.yml) fetches the same two commits.
 
 ```bash
 git clone --depth 1 https://github.com/agent0ai/agent-zero.git .coding-agent/upstream
