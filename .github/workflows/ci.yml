@@ -1,0 +1,49 @@
+name: ci
+
+# Runs the checks of tests/README.md on every push to main and on pull requests.
+# Actions are pinned by commit SHA, with the version in a comment.
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+# A new push to a pull request cancels the run it replaces. Every other run has a group of its own.
+concurrency:
+  group: ${{ github.workflow }}-${{ github.event.pull_request.number || github.run_id }}
+  cancel-in-progress: true
+
+jobs:
+  test:
+    name: layout, index validator and browser tests
+    runs-on: ubuntu-latest
+    env:
+      # The commits of the local source lock (retrieved 2026-11-04). The tests compare against these trees.
+      AGENT_ZERO_COMMIT: ba9b67df0f54ac78106ae85c552ef5d2458f7c9a
+      A0_PLUGINS_COMMIT: c4d90b796e752252a1e36e3f4867add068e9d9e0
+      PYTHONDONTWRITEBYTECODE: "1"
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+      - uses: actions/setup-python@6d4fd22b20465ccc0f7354476588e8df7c9ca0e0 # v7.1.0
+        with:
+          python-version: "3.12"
+          cache: pip
+          cache-dependency-path: tests/requirements.txt
+      - name: Fetch Agent Zero and the plugin index at the locked commits
+        run: |
+          fetch() {
+            git init -q "$1"
+            git -C "$1" fetch -q --depth 1 "$2" "$3"
+            git -C "$1" -c advice.detachedHead=false checkout -q FETCH_HEAD
+            echo "$1 is at $(git -C "$1" rev-parse HEAD)"
+          }
+          fetch .coding-agent/upstream https://github.com/agent0ai/agent-zero.git "$AGENT_ZERO_COMMIT"
+          fetch .coding-agent/a0-plugins https://github.com/agent0ai/a0-plugins.git "$A0_PLUGINS_COMMIT"
+          mkdir -p .coding-agent/tmp
+      - run: pip install -r tests/requirements.txt
+      - run: python -m playwright install chromium
+      - run: python -m pytest -v -rP -p no:cacheprovider --basetemp=.coding-agent/tmp/pytest tests

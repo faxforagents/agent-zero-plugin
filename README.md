@@ -19,6 +19,7 @@
 </p>
 
 <p align="center">
+  <a href="https://github.com/faxforagents/agent-zero-plugin/actions/workflows/ci.yml"><img src="https://img.shields.io/github/actions/workflow/status/faxforagents/agent-zero-plugin/ci.yml?branch=main&label=ci" alt="CI"></a>
   <a href="LICENSE"><img src="https://img.shields.io/badge/licence-MIT-1f6feb" alt="MIT licence"></a>
   <a href="https://faxforagents.com/mcp/"><img src="https://img.shields.io/badge/MCP-hosted%20and%20stdio-6b4fbb" alt="MCP, hosted and stdio"></a>
 </p>
@@ -126,6 +127,7 @@ Revoke unused API keys through the dashboard.
 ## Validation and submission
 
 Run the checks described in [tests/README.md](tests/README.md).
+The [ci workflow](.github/workflows/ci.yml) runs them on every push to main and on each pull request.
 The [submission notes](submissions/README.md) describe the public repository and index PR steps.
 Nothing has been published or submitted.
 
